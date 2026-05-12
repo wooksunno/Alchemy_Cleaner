@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ using UnityEngine;
 /// 레이어 1: 아웃라인
 /// </summary>
 
-public class RenderLayerGroup : MonoBehaviour
+public class OutlineVision : MonoBehaviour
 {
     private List<MeshRenderer> renderers = new List<MeshRenderer>();
+
+    public float VisionTime = 15;
 
     private void Awake()
     {
@@ -18,12 +21,14 @@ public class RenderLayerGroup : MonoBehaviour
 
     private void Start()
     {
+        // 아웃라인 다 해제
         DisableRenderingLayer(1);
     }
 
     // 특정 렌더링 레이어 ON
-    public void EnableRenderingLayer(int layerIndex)
+    private void EnableRenderingLayer(int layerIndex)
     {
+        Debug.Log("33");
         uint mask = 1u << layerIndex;
 
         foreach (var r in renderers)
@@ -33,8 +38,9 @@ public class RenderLayerGroup : MonoBehaviour
     }
 
     // 특정 렌더링 레이어 OFF
-    public void DisableRenderingLayer(int layerIndex)
+    private void DisableRenderingLayer(int layerIndex)
     {
+        Debug.Log("44");
         uint mask = ~(1u << layerIndex);
 
         foreach (var r in renderers)
@@ -44,7 +50,7 @@ public class RenderLayerGroup : MonoBehaviour
     }
 
     // 특정 레이어 토글
-    public void ToggleRenderingLayer(int layerIndex)
+    private void ToggleRenderingLayer(int layerIndex)
     {
         uint mask = 1u << layerIndex;
 
@@ -54,10 +60,24 @@ public class RenderLayerGroup : MonoBehaviour
         }
     }
 
-    // 체크
-    public bool HasLayer(MeshRenderer r, int layerIndex)
+    IEnumerator EnableOutlineCocoutine()
     {
-        uint mask = 1u << layerIndex;
-        return (r.renderingLayerMask & mask) != 0;
+        Debug.Log("22");
+        EnableRenderingLayer(1);
+        yield return new WaitForSeconds(VisionTime);
+        DisableRenderingLayer(1);
+    }
+
+    public void EnableOutline()
+    {
+        StopAllCoroutines();
+        Debug.Log("11");
+        StartCoroutine("EnableOutlineCocoutine");
+    }
+
+    public void DisableOutline()
+    {
+        StopAllCoroutines();
+        DisableRenderingLayer(1);
     }
 }
