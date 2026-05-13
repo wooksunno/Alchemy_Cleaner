@@ -27,7 +27,6 @@ public class PotionEffect : MonoBehaviour
         foreach (var hit in hitColliders)
         {
             // TrashObject 컴포넌트가 있는지 확인
-            // 추후에 TrashObject 클래스가 추가되면 주석 해제하여 사용
             var trash = hit.GetComponentInParent<TrashObject>();
 
             if (trash != null)
