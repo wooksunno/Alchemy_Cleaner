@@ -28,7 +28,6 @@ public class OutlineVision : MonoBehaviour
     // 특정 렌더링 레이어 ON
     private void EnableRenderingLayer(int layerIndex)
     {
-        Debug.Log("33");
         uint mask = 1u << layerIndex;
 
         foreach (var r in renderers)
@@ -40,7 +39,6 @@ public class OutlineVision : MonoBehaviour
     // 특정 렌더링 레이어 OFF
     private void DisableRenderingLayer(int layerIndex)
     {
-        Debug.Log("44");
         uint mask = ~(1u << layerIndex);
 
         foreach (var r in renderers)
@@ -62,7 +60,6 @@ public class OutlineVision : MonoBehaviour
 
     IEnumerator EnableOutlineCocoutine()
     {
-        Debug.Log("22");
         EnableRenderingLayer(1);
         yield return new WaitForSeconds(VisionTime);
         DisableRenderingLayer(1);
@@ -71,7 +68,6 @@ public class OutlineVision : MonoBehaviour
     public void EnableOutline()
     {
         StopAllCoroutines();
-        Debug.Log("11");
         StartCoroutine("EnableOutlineCocoutine");
     }
 
