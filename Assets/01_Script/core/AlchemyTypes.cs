@@ -27,3 +27,31 @@ public enum LicenseGrade
     Senior     = 2,  // 시니어
     Master     = 3   // 마스터
 }
+
+public enum TrashType
+{
+    None = 0,
+
+    // 일반 오염
+    Dust                = 1,    // 먼지
+    Slime               = 2,    // 점액
+    StickyTrash         = 3,    // 끈적 쓰레기
+    Mold                = 4,    // 곰팡이
+    ToxicMud            = 5,    // 독성 진흙
+
+    // 물리 구조물
+    Debris              = 6,    // 잔해
+    BrokenFurniture     = 7,    // 부서진 가구
+    CrystalCorruption   = 8,    // 마력 결정 오염
+    RootGrowth          = 9,    // 오염된 덩굴/뿌리
+
+    // 생명체 계열
+    ParasiteNest        = 10,    // 기생 둥지
+    CorruptedPlant      = 11,    // 타락 식물
+    GhostResidue        = 12,    // 유령 잔류물
+
+    // 특수 오염
+    HiddenCorruption    = 13,    // 숨겨진 오염
+    CursedObject        = 14,    // 저주 물체
+    ManaLeak            = 15     // 마력 누출
+};
