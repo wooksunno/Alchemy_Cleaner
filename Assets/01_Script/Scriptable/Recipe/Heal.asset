@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4906575b6a8434b4ebd0479002fc693d, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  potionName: Heal
+  description: "\uC0DD\uBA85 \uC5D0\uB108\uC9C0\uB97C \uC8FC\uC785\uD569\uB2C8\uB2E4.
+    \uC624\uC5FC\uC73C\uB85C \uC778\uD574 \uC2DC\uB4E0 \uB9C8\uBC95 \uC2DD\uBB3C\uC774\uB098
+    \uD654\uCD08\uC5D0 \uD22C\uCC99\uD558\uBA74 \uC0DD\uAE30\uB97C \uB418\uCC3E\uC544\uC8FC\uBA70,
+    \uC774\uB294 \uC758\uB8B0 \uC644\uB8CC \uD6C4 \uCD94\uAC00 \uBCF4\uB108\uC2A4
+    \uBCF4\uC0C1\uC73C\uB85C \uC774\uC5B4\uC9D1\uB2C8\uB2E4."
+  resultType: 0
+  resultPrefab: {fileID: 4402901486957342542, guid: 80fbcd34fa14faf4fb4f166ffeac94ea, type: 3}
+  resultIcon: {fileID: 0}
+  requiredIngredients:
+  - ingredient: {fileID: 0}
+    amount: 0
+  - ingredient: {fileID: 0}
+    amount: 0
+  requiredLicense: 0
+  isMixedPotion: 0
+  baseYield: 1

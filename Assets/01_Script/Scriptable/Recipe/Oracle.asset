@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4906575b6a8434b4ebd0479002fc693d, type: 3}
+  m_Name: Oracle
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  potionName: Oracle
+  description: "\uD50C\uB808\uC774\uC5B4\uAC00 \uC9C1\uC811 \uB9C8\uC2DC\uB294 \uC720\uD2F8\uB9AC\uD2F0
+    \uD3EC\uC158\uC785\uB2C8\uB2E4. \uC77C\uC815 \uC2DC\uAC04 \uB3D9\uC548 \uC2DC\uC57C\uB97C
+    \uD655\uC7A5\uD558\uC5EC \uBCBD \uB4A4\uB098 \uAC00\uAD6C \uC544\uB798 \uC228\uACA8\uC9C4
+    \uBBF8\uC138 \uC624\uC5FC\uC6D0\uC744 \uBC1D\uAC8C \uD558\uC774\uB77C\uC774\uD2B8
+    \uD569\uB2C8\uB2E4."
+  resultType: 0
+  resultPrefab: {fileID: 1065595005019915424, guid: 3d3c9bc423d60e9498287bc18fbf5202, type: 3}
+  resultIcon: {fileID: 0}
+  requiredIngredients:
+  - ingredient: {fileID: 0}
+    amount: 0
+  - ingredient: {fileID: 0}
+    amount: 0
+  requiredLicense: 0
+  isMixedPotion: 0
+  baseYield: 1

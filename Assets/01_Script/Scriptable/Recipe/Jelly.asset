@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4906575b6a8434b4ebd0479002fc693d, type: 3}
+  m_Name: Jelly
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  potionName: 'Jelly '
+  description: "\uC810\uC131\uC774 \uAC15\uD55C \uC824\uB9AC \uD615\uD0DC\uB85C \uBCC0\uD569\uB2C8\uB2E4.
+    \uB113\uC740 \uBC94\uC704\uC5D0 \uD769\uC5B4\uC9C4 \uC791\uC740 \uC4F0\uB808\uAE30\uB4E4\uC744
+    \uD55C\uACF3\uC73C\uB85C \uB048\uC801\uD558\uAC8C \uBAA8\uC73C\uB294 \uC751\uC9D1
+    \uD6A8\uACFC\uB97C \uC81C\uACF5\uD558\uC5EC \uC218\uAC70 \uD6A8\uC728\uC744 \uB192\uC785\uB2C8\uB2E4."
+  resultType: 0
+  resultPrefab: {fileID: 4208666111620751214, guid: d675ad1c56aab7045b705ecc51b5f40b, type: 3}
+  resultIcon: {fileID: 0}
+  requiredIngredients:
+  - ingredient: {fileID: 0}
+    amount: 0
+  - ingredient: {fileID: 0}
+    amount: 0
+  requiredLicense: 0
+  isMixedPotion: 0
+  baseYield: 1

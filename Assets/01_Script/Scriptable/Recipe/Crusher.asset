@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4906575b6a8434b4ebd0479002fc693d, type: 3}
+  m_Name: Crusher
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  potionName: Crusher
+  description: "\uD22C\uCC99 \uC2DC \uD3ED\uBC1C\uC801\uC778 \uBB3C\uB9AC \uCDA9\uACA9\uC744
+    \uAC00\uD569\uB2C8\uB2E4. \uC815\uD654\uC5D0 \uBC29\uD574\uAC00 \uB418\uB294
+    \uB2E8\uB2E8\uD55C \uC794\uD574\uBB3C\uC774\uB098 \uBC84\uB824\uC9C4 \uAC00\uAD6C
+    \uB4F1\uC744 \uC0B0\uC0B0\uC870\uAC01 \uB0B4\uC5B4 \uCC98\uB9AC \uAC00\uB2A5\uD55C
+    \uD06C\uAE30\uB85C \uBD84\uC1C4\uD569\uB2C8\uB2E4."
+  resultType: 0
+  resultPrefab: {fileID: 676605577169949884, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
+  resultIcon: {fileID: 0}
+  requiredIngredients:
+  - ingredient: {fileID: 11400000, guid: 24aa1526d1ddd5442bce98eab57fd7c4, type: 2}
+    amount: 1
+  - ingredient: {fileID: 11400000, guid: adbdd7b9d50efdb448dbe835d8a0153a, type: 2}
+    amount: 1
+  requiredLicense: 0
+  isMixedPotion: 0
+  baseYield: 1
