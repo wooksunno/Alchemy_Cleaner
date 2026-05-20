@@ -34,6 +34,10 @@ public class CauldronController : MonoBehaviour
     [Range(0f, 1f)]
     [Tooltip("대성공 기본 확률 (업그레이드 레벨과 함께 작동)")]
     [SerializeField] private float criticalChance = 0.20f;
+    
+    [Header("VFX")]
+    [Tooltip("제조 실패 VFX")]
+    [SerializeField] private GameObject RecipeFailedEffectPrefab;
 
     // ── UnityEvent ────────────────────────────────────────────
 
@@ -130,6 +134,15 @@ public class CauldronController : MonoBehaviour
             Debug.Log("[Cauldron] 일치하는 레시피 없음. 솥을 초기화합니다.");
             OnRecipeFailed?.Invoke();
             ClearCauldron();
+
+            // 시각 효과 생성
+            if (RecipeFailedEffectPrefab != null)
+            {
+                GameObject instance = Instantiate(RecipeFailedEffectPrefab, transform.position, Quaternion.identity);
+                Transform _transform = instance.GetComponent<Transform>();
+                _transform.localScale = new Vector3(5,5,5);
+                Destroy(instance, 2f);
+            }
             return;
         }
 

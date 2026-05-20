@@ -7,7 +7,7 @@
 */
 
 
-[RequireComponent(typeof(PotionBase))] // PotionBase 컴포넌트가 반드시 필요함을 명시
+[RequireComponent(typeof(PotionEffect))] // PotionBase 컴포넌트가 반드시 필요함을 명시
 public class PotionShatter : MonoBehaviour
 {
     public GameObject breakEffectPrefab; // 깨질 때 나올 파티클

@@ -25,40 +25,43 @@ public class OutlineVision : MonoBehaviour
         DisableRenderingLayer(1);
     }
 
-    // 특정 렌더링 레이어 ON
     private void EnableRenderingLayer(int layerIndex)
     {
         uint mask = 1u << layerIndex;
 
-        foreach (var r in renderers)
+        // 삭제된 자식은 리스트에서 제거
+        // 역순으로 도는 이유는 RemoveAt 중 인덱스 꼬임 방지
+        for (int i = renderers.Count - 1; i >= 0; i--)
         {
-            r.renderingLayerMask |= mask;
+            if (renderers[i] == null)
+            {
+                renderers.RemoveAt(i);
+                continue;
+            }
+
+            renderers[i].renderingLayerMask |= mask;
         }
     }
 
-    // 특정 렌더링 레이어 OFF
     private void DisableRenderingLayer(int layerIndex)
     {
         uint mask = ~(1u << layerIndex);
 
-        foreach (var r in renderers)
+        // 삭제된 자식은 리스트에서 제거
+        // 역순으로 도는 이유는 RemoveAt 중 인덱스 꼬임 방지
+        for (int i = renderers.Count - 1; i >= 0; i--)
         {
-            r.renderingLayerMask &= mask;
+            if (renderers[i] == null)
+            {
+                renderers.RemoveAt(i);
+                continue;
+            }
+
+            renderers[i].renderingLayerMask &= mask;
         }
     }
 
-    // 특정 레이어 토글
-    private void ToggleRenderingLayer(int layerIndex)
-    {
-        uint mask = 1u << layerIndex;
-
-        foreach (var r in renderers)
-        {
-            r.renderingLayerMask ^= mask;
-        }
-    }
-
-    IEnumerator EnableOutlineCocoutine()
+    IEnumerator EnableOutlineCoroutine()
     {
         EnableRenderingLayer(1);
         yield return new WaitForSeconds(VisionTime);
@@ -68,7 +71,7 @@ public class OutlineVision : MonoBehaviour
     public void EnableOutline()
     {
         StopAllCoroutines();
-        StartCoroutine("EnableOutlineCocoutine");
+        StartCoroutine(EnableOutlineCoroutine());
     }
 
     public void DisableOutline()

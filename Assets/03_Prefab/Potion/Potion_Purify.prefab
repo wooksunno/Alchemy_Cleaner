@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7994942474401306295}
   - component: {fileID: 289097043077163025}
   - component: {fileID: 7914173825868022474}
-  - component: {fileID: 4697464991580929490}
   - component: {fileID: 4847459214114070600}
   - component: {fileID: 3242282031170073396}
   - component: {fileID: -980905278739013920}
@@ -90,19 +89,6 @@ CapsuleCollider:
   m_Height: 0.33
   m_Direction: 1
   m_Center: {x: 0, y: 0.16, z: 0}
---- !u!114 &4697464991580929490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4260020003914186740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb71b89e385cf0438d47f726aa0cc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PotionBase
-  type: 0
 --- !u!114 &4847459214114070600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c291629f7b33d449a82edaa02902f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PotionEffect
+  potionType: 6
+  trashDatabase: {fileID: 11400000, guid: 79c41c76cb374bb4181ef7dd1ebf1e12, type: 2}
   effectRadius: 1.5
 --- !u!114 &3242282031170073396
 MonoBehaviour:
