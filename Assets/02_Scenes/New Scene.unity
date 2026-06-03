@@ -3340,8 +3340,8 @@ GameObject:
   - component: {fileID: 580711856}
   - component: {fileID: 580711855}
   - component: {fileID: 580711854}
-  - component: {fileID: 580711853}
   - component: {fileID: 580711857}
+  - component: {fileID: 580711858}
   m_Layer: 0
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -3349,23 +3349,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &580711853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580711852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &580711854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3447,9 +3430,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryToggle
   inventoryCanvas: {fileID: 580711852}
   menuButtonAction: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
+  actionButtonObject: {fileID: 0}
   distanceFromPlayer: 1.2
   heightOffset: -0.2
-  targetSceneName: Clean Map 1
+--- !u!114 &580711858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580711852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &611983189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,6 +5907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Purify
       objectReference: {fileID: 0}
+    - target: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
+      propertyPath: m_TagString
+      value: Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.801
@@ -5950,8 +5954,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1127250365}
   m_SourcePrefab: {fileID: 100100000, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
+--- !u!1 &1127250364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
+  m_PrefabInstance: {fileID: 1127250363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1127250365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127250364}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1150783818
 GameObject:
   m_ObjectHideFlags: 0
@@ -7243,9 +7276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryToggle
   inventoryCanvas: {fileID: 580711852}
   menuButtonAction: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
+  actionButtonObject: {fileID: 0}
   distanceFromPlayer: 1.2
   heightOffset: -0.2
-  targetSceneName: Clean Map 1
 --- !u!4 &1517384135
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - floor
+  - Potion
   layers:
   - Default
   - TransparentFX
