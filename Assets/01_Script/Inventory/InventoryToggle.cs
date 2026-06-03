@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// [VR 인벤토리 토글 매니저 - 플레이어 정면 생성 버전]
-/// M 키를 누를 때마다 메인 카메라(VR 헤드셋)의 위치와 정면 방향을 계산하여
-/// 항상 플레이어 눈앞 알맞은 거리에 가방 UI를 띄워줍니다.
+/// VR UI 인벤토리의 활성화 토글 및 플레이어 정면 정렬, 
+/// 그리고 게임 플레이 씬으로의 전이를 총괄하는 UI 흐름 제어 클래스입니다.
 /// </summary>
 public class InventoryToggle : MonoBehaviour
 {
@@ -15,13 +15,18 @@ public class InventoryToggle : MonoBehaviour
     [SerializeField] private InputActionReference menuButtonAction;
 
     [Header("UI 생성 위치 미세조정")]
-    [Tooltip("플레이어 눈앞으로부터 얼마나 떨어뜨려 배치할지 (미터 단위)")]
+    [Tooltip("플레이어 시야로부터 배치할 거리 (미터 단위)")]
     [SerializeField] private float distanceFromPlayer = 1.2f;
 
-    [Tooltip("플레이어 눈높이 기준으로 UI를 위아래로 얼마나 조절할지 (+는 위, -는 아래)")]
+    [Tooltip("플레이어 눈높이 기준 수직 오프셋")]
     [SerializeField] private float heightOffset = -0.2f;
 
+    [Header("씬 전환 설정")]
+    [Tooltip("이동할 대상 플레이 씬의 정식 명칭을 입력합니다.")]
+    [SerializeField] private string targetSceneName = "Clean Map 1";
+
     private Transform _mainCameraTransform;
+    private bool _isChanging = false;
 
     private void OnEnable()
     {
@@ -41,13 +46,11 @@ public class InventoryToggle : MonoBehaviour
 
     private void Start()
     {
-        // VR 헤드셋(메인 카메라)의 Transform을 찾아둡니다.
         if (Camera.main != null)
         {
             _mainCameraTransform = Camera.main.transform;
         }
 
-        // 게임 시작할 때는 인벤토리를 꺼둡니다.
         if (inventoryCanvas != null)
         {
             inventoryCanvas.SetActive(false);
@@ -58,40 +61,45 @@ public class InventoryToggle : MonoBehaviour
     {
         if (inventoryCanvas == null || _mainCameraTransform == null) return;
 
-        // 1. 현재 켜져있는지 꺼져있는지 상태 반전
         bool isActive = !inventoryCanvas.activeSelf;
 
-        // 2. [🚨 핵심 로직] 가방을 '켤 때' 현재 플레이어 눈앞 위치를 계산해서 순간이동 시킴
         if (isActive)
         {
             RepositionCanvasFrontOfPlayer();
         }
 
-        // 3. 최종 활성화/비활성화
         inventoryCanvas.SetActive(isActive);
-        Debug.Log($"[Inventory] 가방 토글: {isActive} (플레이어 정면 배치 완료)");
     }
 
     /// <summary>
-    /// 메인 카메라의 위치와 회전값을 기반으로 캔버스를 플레이어 정면에 정렬합니다.
+    /// 메인 카메라의 수평 벡터를 기반으로 캔버스를 플레이어 정면에 정렬합니다 (멀미 방지 알고리즘 반영).
     /// </summary>
     private void RepositionCanvasFrontOfPlayer()
     {
-        // A. 플레이어 헤드셋의 평면(수평) 정면 방향을 계산 (UI가 수평으로만 정렬되도록 하여 멀미 방지)
         Vector3 cameraForward = _mainCameraTransform.forward;
-        cameraForward.y = 0; // 고개를 위아래로 숙여도 UI가 땅에 박히거나 하늘로 치솟지 않게 수평 고정
+        cameraForward.y = 0;
         cameraForward.Normalize();
 
-        // B. 최종 위치 계산: 현재 카메라 위치 + (정면 방향 * 거리) + (높이 보정)
         Vector3 targetPosition = _mainCameraTransform.position
                                  + (cameraForward * distanceFromPlayer)
                                  + (Vector3.up * heightOffset);
 
-        // C. UI가 플레이어를 똑바로 바라보도록 회전값 계산
         Quaternion targetRotation = Quaternion.LookRotation(cameraForward);
 
-        // D. 캔버스에 계산된 위치와 회전 적용
         inventoryCanvas.transform.position = targetPosition;
         inventoryCanvas.transform.rotation = targetRotation;
+    }
+
+    /// <summary>
+    /// UI 인터페이스 버튼 입력을 받아 지정된 게임 플레이 씬을 로드합니다.
+    /// 유니티 이벤트 시스템(On Click)에서 직접 호출할 수 있도록 인자가 없는 public 형태를 유지합니다.
+    /// </summary>
+    public void ChangeToGameScene()
+    {
+        if (_isChanging) return;
+        _isChanging = true;
+
+        Debug.Log($"[InventoryToggle] {targetSceneName} 씬 로드를 시작합니다.");
+        SceneManager.LoadScene(targetSceneName);
     }
 }
