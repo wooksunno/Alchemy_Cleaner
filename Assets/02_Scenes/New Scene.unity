@@ -291,6 +291,51 @@ PrefabInstance:
       addedObject: {fileID: 580711856}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+--- !u!1 &41107574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41107576}
+  - component: {fileID: 41107575}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41107575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41107574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ed72bbe6cf044ea3a03816a8f91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  savedItemNames: []
+--- !u!4 &41107576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41107574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.22602, y: 0, z: 6.14419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45606907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -926,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1457375359}
   countText: {fileID: 159227777}
 --- !u!114 &235004877
@@ -1922,6 +1968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 279667641}
   countText: {fileID: 1048205682}
 --- !u!114 &363532683
@@ -1974,6 +2021,7 @@ GameObject:
   - component: {fileID: 382226709}
   - component: {fileID: 382226708}
   - component: {fileID: 382226707}
+  - component: {fileID: 382226710}
   m_Layer: 0
   m_Name: START
   m_TagString: Untagged
@@ -2047,7 +2095,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 580711857}
         m_TargetAssemblyTypeName: InventoryToggle, Assembly-CSharp
-        m_MethodName: ChangeToGameScene
+        m_MethodName: HandleSceneTransition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2095,6 +2143,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382226705}
   m_CullTransparentMesh: 1
+--- !u!114 &382226710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382226705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580711857}
+        m_TargetAssemblyTypeName: InventoryToggle, Assembly-CSharp
+        m_MethodName: HandleSceneTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
 --- !u!1 &396228005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1769446232}
   countText: {fileID: 237503466}
 --- !u!114 &495169951
@@ -3086,6 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1114771711}
   countText: {fileID: 1741078806}
 --- !u!114 &504844492
@@ -3289,6 +3425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 611983191}
   countText: {fileID: 1882386780}
 --- !u!114 &512004119
@@ -3342,6 +3479,8 @@ GameObject:
   - component: {fileID: 580711854}
   - component: {fileID: 580711857}
   - component: {fileID: 580711858}
+  - component: {fileID: 580711859}
+  - component: {fileID: 580711860}
   m_Layer: 0
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -3429,10 +3568,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryToggle
   inventoryCanvas: {fileID: 580711852}
-  menuButtonAction: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
-  actionButtonObject: {fileID: 0}
-  distanceFromPlayer: 1.2
-  heightOffset: -0.2
+  spawnDistance: 1.5
+  spawnHeight: 0
+  itemDatabase:
+  - itemName: Adamantium
+    data: {fileID: 11400000, guid: 24aa1526d1ddd5442bce98eab57fd7c4, type: 2}
+    worldPrefab: {fileID: 0}
+  - itemName: Grass
+    data: {fileID: 11400000, guid: adbdd7b9d50efdb448dbe835d8a0153a, type: 2}
+    worldPrefab: {fileID: 0}
+  - itemName: IronDust
+    data: {fileID: 11400000, guid: c8a2fbc103ad64a409a800457a98fdb5, type: 2}
+    worldPrefab: {fileID: 0}
+  buttonText: {fileID: 940202141}
+  menuButtonAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Menu Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 505e2faa-19ae-45d6-9550-c506a8f674b5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
 --- !u!114 &580711858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3450,6 +3610,39 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!65 &580711859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580711852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1000, y: 625, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &580711860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580711852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf8558bbf71f274587a80d4490f6e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BagTrigger
 --- !u!1 &611983189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,6 +4212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 319275337}
   countText: {fileID: 1994669701}
 --- !u!114 &723611007
@@ -4222,6 +4416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1584102867}
   countText: {fileID: 1114473052}
 --- !u!114 &816367708
@@ -4780,6 +4975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1995786647}
   countText: {fileID: 1009988687}
 --- !u!114 &961398350
@@ -5222,6 +5418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1766119030}
   countText: {fileID: 658351674}
 --- !u!114 &1018977574
@@ -6148,6 +6345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 258670029}
   countText: {fileID: 1672976662}
 --- !u!114 &1150783823
@@ -6625,6 +6823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 404751506}
   countText: {fileID: 1228907204}
 --- !u!114 &1250368150
@@ -7099,6 +7298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   ingredientData: {fileID: 0}
   itemCount: 0
+  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 2113464217}
   countText: {fileID: 708826231}
 --- !u!114 &1347947675
@@ -7275,10 +7475,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryToggle
   inventoryCanvas: {fileID: 580711852}
-  menuButtonAction: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
-  actionButtonObject: {fileID: 0}
-  distanceFromPlayer: 1.2
-  heightOffset: -0.2
+  spawnDistance: 1.5
+  spawnHeight: 0
+  itemDatabase: []
+  buttonText: {fileID: 0}
+  menuButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6638dd40-9c80-411a-a7ab-d5746b46e040
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!4 &1517384135
 Transform:
   m_ObjectHideFlags: 0
@@ -9621,3 +9833,4 @@ SceneRoots:
   - {fileID: 1619273806}
   - {fileID: 1517384135}
   - {fileID: 337696739}
+  - {fileID: 41107576}

@@ -1,132 +1,120 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class InventoryToggle : MonoBehaviour
 {
-    [Header("연동할 인벤토리 UI Canvas")]
+    [Header("인벤토리 UI 설정")]
     public GameObject inventoryCanvas;
+    [SerializeField] private float spawnDistance = 1.5f;
+    [SerializeField] private float spawnHeight = 0.0f;
 
-    [Header("인풋 액션 설정")]
-    public InputActionReference menuButtonAction;
+    [Header("🚀 씬 전환 버튼 연동 (영문 고정)")]
+    public TextMeshProUGUI buttonText;
 
-    [Header("버튼 연동")]
-    public GameObject actionButtonObject;
-
-    [Header("UI 생성 위치 미세조정")]
-    public float distanceFromPlayer = 1.2f;
-    public float heightOffset = -0.2f;
+    [Header("🎮 VR 인풋 시스템 세팅 (최우선)")]
+    public InputActionProperty menuButtonAction;
 
     private Transform _cameraTransform;
     private bool _isUIActive = false;
 
-    private void Awake()
+    private void Start()
     {
-        if (Camera.main != null)
+        if (Camera.main != null) _cameraTransform = Camera.main.transform;
+        if (inventoryCanvas != null) inventoryCanvas.SetActive(false);
+        UpdateButtonTextByScene();
+    }
+
+    private void OnEnable() => menuButtonAction.action?.Enable();
+
+    private void Update()
+    {
+        // 1순위: VR 컨트롤러 메뉴 버튼 입력 감지
+        if (menuButtonAction.action != null && menuButtonAction.action.WasPressedThisFrame())
         {
-            _cameraTransform = Camera.main.transform;
+            ToggleInventory();
+            return;
         }
 
-        if (inventoryCanvas != null)
+        // 2순위: PC 테스트용 키보드 M 키
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            inventoryCanvas.SetActive(false);
-        }
-
-        // 씬 전환 시 잠겨버리는 M 키 인풋 액션을 강제로 깨웁니다.
-        if (menuButtonAction != null && menuButtonAction.action != null)
-        {
-            menuButtonAction.action.Enable();
-
-            // ✨ [진짜 치트키 소스: 끊어진 T키 링크선 강제 납땜]
-            // 복사되면서 꼬인 시뮬레이터 인풋 자산의 권한을 이 씬의 가방으로 강제 귀속시킵니다.
-            menuButtonAction.action.actionMap.Enable();
+            ToggleInventory();
         }
     }
 
-    private void OnEnable()
+    public void ToggleInventory()
     {
-        if (menuButtonAction != null)
-            menuButtonAction.action.performed += OnMenuButtonPressed;
-    }
-
-    private void OnDisable()
-    {
-        if (menuButtonAction != null)
-            menuButtonAction.action.performed -= OnMenuButtonPressed;
-    }
-
-    /// <summary>
-    /// M 키를 눌러 가방이 열릴 때, 인풋 링크선이 깨지지 않도록 안전하게 글자를 교체합니다.
-    /// </summary>
-    private void OnMenuButtonPressed(InputAction.CallbackContext context)
-    {
-        if (inventoryCanvas == null || _cameraTransform == null) return;
+        if (inventoryCanvas == null) return;
+        if (_cameraTransform == null && Camera.main != null) _cameraTransform = Camera.main.transform;
 
         _isUIActive = !_isUIActive;
         inventoryCanvas.SetActive(_isUIActive);
 
+        // 가방 뒤 장벽 콜라이더 실시간 온오프 (스타트 버튼 터치 레이저 방해 방지)
+        var canvasCollider = inventoryCanvas.GetComponent<BoxCollider>();
+        if (canvasCollider != null) canvasCollider.enabled = _isUIActive;
+
+        // ✨ 핵심 기믹: 1번 씬이든 2번 씬이든 가방이 열리기만 하면 실시간 동기화 복구!
         if (_isUIActive)
         {
-            // ✨ [T키 오류 해결의 핵심] 가방이 열릴 때 안전하게 글자를 갱신합니다.
-            UpdateButtonTextByScene();
             PositionInventoryInFront();
+            RestoreInventoryFromSO();
         }
     }
 
     /// <summary>
-    /// 현재 씬의 번호를 판별하여 START 또는 HOME 글자를 안전하게 주입하는 메서드입니다.
+    /// 이름 비교 연산 없이 보관함에 들어있는 SO 순서대로 슬롯에 꽂아 노란 불빛을 켭니다.
     /// </summary>
-    private void UpdateButtonTextByScene()
+    private void RestoreInventoryFromSO()
     {
-        if (actionButtonObject == null) return;
+        if (DataManager.Instance == null) return;
 
-        int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        var slots = FindObjectsOfType<InventorySlot>();
+        System.Array.Sort(slots, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
 
-        // 0번 씬(시작 화면)이면 START, 1번 씬(게임 맵)이면 HOME으로 설정
-        string targetText = (currentBuildIndex == 0) ? "START" : "HOME";
+        int savedCount = DataManager.Instance.savedItems.Count;
 
-        var tmpText = actionButtonObject.GetComponentInChildren<TextMeshProUGUI>();
-        if (tmpText != null) tmpText.text = targetText;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < savedCount)
+            {
+                IngredientData data = DataManager.Instance.savedItems[i];
+                slots[i].SetSlotData(data, 1, null);
+            }
+            else
+            {
+                slots[i].ClearSlot(); // 남는 슬롯은 깨끗하게 밀어버리기
+            }
+        }
 
-        var normalText = actionButtonObject.GetComponentInChildren<UnityEngine.UI.Text>();
-        if (normalText != null) normalText.text = targetText;
+        if (InventoryManager.Instance != null)
+        {
+            InventoryManager.Instance.SortAndRefreshInventory();
+        }
     }
 
-    /// <summary>
-    /// UI 생성 위치 조정
-    /// </summary>
     private void PositionInventoryInFront()
     {
-        Vector3 forward = _cameraTransform.forward;
-        forward.y = 0;
-        forward.Normalize();
-
-        Vector3 targetPosition = _cameraTransform.position + (forward * distanceFromPlayer);
-        targetPosition.y += heightOffset;
-
-        Quaternion targetRotation = Quaternion.LookRotation(forward);
-
-        inventoryCanvas.transform.position = targetPosition;
-        inventoryCanvas.transform.rotation = targetRotation;
+        Vector3 cameraPosition = _cameraTransform.position;
+        Vector3 cameraForward = _cameraTransform.forward;
+        cameraForward.y = 0; cameraForward.Normalize();
+        inventoryCanvas.transform.position = cameraPosition + cameraForward * spawnDistance + Vector3.up * spawnHeight;
+        inventoryCanvas.transform.rotation = Quaternion.LookRotation(cameraForward);
     }
 
-    /// <summary>
-    /// T 키(상호작용 클릭) 및 마우스 클릭 시 실행될 최종 통합 메서드입니다.
-    /// </summary>
-    public void ChangeToGameScene()
+    // VR 레이저 트리거(Select) 및 마우스 클릭에 바인딩할 양방향 워프 함수
+    public void HandleSceneTransition()
     {
-        int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (currentScene == "New Scene") UnityEngine.SceneManagement.SceneManager.LoadScene("Clean Map 1");
+        else if (currentScene == "Clean Map 1") UnityEngine.SceneManagement.SceneManager.LoadScene("New Scene");
+    }
 
-        if (currentBuildIndex == 0)
-        {
-            Debug.Log("[Inventory] START 클릭: 게임 맵(인덱스 1)으로 이동합니다.");
-            SceneManager.LoadScene(1);
-        }
-        else if (currentBuildIndex == 1)
-        {
-            Debug.Log("[Inventory] HOME 클릭: 시작 화면(인덱스 0)으로 복귀합니다.");
-            SceneManager.LoadScene(0);
-        }
+    private void UpdateButtonTextByScene()
+    {
+        if (buttonText == null) return;
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        buttonText.text = (currentScene == "New Scene") ? "Start" : "Home";
     }
 }
