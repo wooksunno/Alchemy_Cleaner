@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4ed72bbe6cf044ea3a03816a8f91a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
-  savedItemNames: []
+  savedItems: []
 --- !u!4 &41107576
 Transform:
   m_ObjectHideFlags: 0
@@ -3570,16 +3570,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 580711852}
   spawnDistance: 1.5
   spawnHeight: 0
-  itemDatabase:
-  - itemName: Adamantium
-    data: {fileID: 11400000, guid: 24aa1526d1ddd5442bce98eab57fd7c4, type: 2}
-    worldPrefab: {fileID: 0}
-  - itemName: Grass
-    data: {fileID: 11400000, guid: adbdd7b9d50efdb448dbe835d8a0153a, type: 2}
-    worldPrefab: {fileID: 0}
-  - itemName: IronDust
-    data: {fileID: 11400000, guid: c8a2fbc103ad64a409a800457a98fdb5, type: 2}
-    worldPrefab: {fileID: 0}
   buttonText: {fileID: 940202141}
   menuButtonAction:
     m_UseReference: 1
@@ -7477,12 +7467,11 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 580711852}
   spawnDistance: 1.5
   spawnHeight: 0
-  itemDatabase: []
   buttonText: {fileID: 0}
   menuButtonAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Menu Button
       m_Type: 0
       m_ExpectedControlType: 
       m_Id: 6638dd40-9c80-411a-a7ab-d5746b46e040
