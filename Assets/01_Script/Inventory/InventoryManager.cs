@@ -1,18 +1,15 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ¿¡¼Â ¾øÀÌµµ ½Ç½Ã°£À¸·Î 3D ¹°Ã¼ Á¤º¸¸¦ ³Ñ°Ü¹Ş¾Æ ¾ÕÀ¸·Î Ã¤¿öÁÖ´Â ÀÎº¥Åä¸® ÃÑ°ı ¸Å´ÏÀúÀÔ´Ï´Ù.
+/// ì¸ë²¤í† ë¦¬ ìŠ¬ë¡¯ë“¤ì„ ì´ê´„ ê´€ë¦¬í•˜ëŠ” ë§¤ë‹ˆì €ì…ë‹ˆë‹¤.
 /// </summary>
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [Header("½½·Ô ¸®½ºÆ®")]
+    [Header("ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸")]
     public List<InventorySlot> allSlots = new List<InventorySlot>();
-
-    // 3D ¿ÀºêÁ§Æ® ¸ğ¾çµéÀ» ½½·Ô ¼ø¼­´ë·Î ÀÓ½Ã ±â¾ïÇÒ ¸®½ºÆ®
-    private List<GameObject> savedPrefabs = new List<GameObject>();
 
     private void Awake()
     {
@@ -27,51 +24,25 @@ public class InventoryManager : MonoBehaviour
     }
 
     /// <summary>
-    /// °¡¹æ ³»ºÎ Á¤·Ä ½Ã½ºÅÛ (µ¿Àû 3D ¹°Ã¼ ±â¾ï ¿¬µ¿ ¹öÀü)
+    /// ìŠ¬ë¡¯ UI ì „ì²´ë¥¼ ìƒˆë¡œê³ ì¹¨í•©ë‹ˆë‹¤.
     /// </summary>
     public void SortAndRefreshInventory()
     {
-        // ÀÓ½Ã ÀúÀå¿ë ¸®½ºÆ® ±¸Á¶ »ı¼º
-        List<IngredientData> dataList = new List<IngredientData>();
-        List<int> countList = new List<int>();
-        List<GameObject> prefabList = new List<GameObject>();
-
-        // 1. ÇöÀç µ¥ÀÌÅÍ°¡ »ì¾ÆÀÖ´Â ½½·ÔµéÀÇ Á¤º¸¸¦ ½Ï ±Ü¾î¸ğÀ¾´Ï´Ù.
-        for (int i = 0; i < allSlots.Count; i++)
-        {
-            // ÀÌ ·ÎÁ÷Àº ÇÏÀÌ¾î¶óÅ°ÀÇ ÀÓ½Ã º¯¼ö¸¦ ¿ìÈ¸ÇÏ±â À§ÇØ ÀÎ½ºÆåÅÍÀÇ ¼ö·®¸¸ Ã¼Å©ÇÕ´Ï´Ù.
-            // ¾Æ·¡ InventorySlotÀÇ ¸®ÆÑÅä¸µµÈ ±¸Á¶¿Í ¿¬µ¿µË´Ï´Ù.
-        }
-
-        // °£´ÜÇÑ ¿ìÈ¸¸¦ À§ÇØ ½Ç½Ã°£ ·±Å¸ÀÓ Ä³½Ì ¹æ½ÄÀ¸·Î ÀçÁ¤·ÄÀ» Ã³¸®ÇÕ´Ï´Ù.
-        // À¯´ÏÆ¼ ·±Å¸ÀÓ µ¿Àû Ã³¸®¸¦ À§ÇØ ¾Æ·¡ TryAddItemDynamic ½Ã½ºÅÛÀÌ ¸ŞÀÎÀ¸·Î ÀÛµ¿ÇÕ´Ï´Ù.
+        RefreshAllSlots();
     }
 
     /// <summary>
-    /// [ÇÙ½É Ä¡Æ®Å° ÇÔ¼ö] ¹Û¿¡¼­ ´øÁ® ³ÖÀº 3D ¹°Ã¼ÀÇ ¿ÜÇüÀ» ±×´ë·Î Àü´Ş¹Ş¾Æ ºó ÀÚ¸®¿¡ ²Å¾ÆÁİ´Ï´Ù.
+    /// ë¹ˆ ìŠ¬ë¡¯ì— í¬ì…˜ì„ ë°°ì¹˜í•©ë‹ˆë‹¤.
     /// </summary>
-    public bool TryAddItemDynamic(IngredientData data, GameObject worldObject)
+    public bool TryAddItemDynamic(PotionRecipe recipe)
     {
-        if (worldObject == null) return false;
+        if (recipe == null) return false;
 
-        // 1. ÀÌ¹Ì °¡¹æ¿¡ °°Àº Á¾·ù¸¦ º¸°üÇÏ´Â Ä­ÀÌ ÀÖ´ÂÁö °Ë»ç (µ¥ÀÌÅÍ°¡ µÑ ´Ù nullÀÌ°Å³ª ÀÏÄ¡ÇÒ ¶§)
-        foreach (var slot in allSlots)
-        {
-            if (slot.ItemCount > 0 && slot.ingredientData == data)
-            {
-                slot.SetSlotData(data, slot.ItemCount + 1, worldObject);
-                RefreshAllSlots();
-                return true;
-            }
-        }
-
-        // 2. ¾Æ¿¹ »õ·Î¿î ¹°Ã¼¶ó¸é ¿ÏÀüÈ÷ ºñ¾îÀÖ´Â ¸Ç ¾Õ ½½·ÔÀ» Ã£¾Æ ¹èÄ¡
         foreach (var slot in allSlots)
         {
             if (slot.ItemCount == 0)
             {
-                // ÀÌ ½½·Ô¿¡ µ¥ÀÌÅÍ¿Í ÇÔ²² ¹æ±İ ´øÁ® ³ÖÀº 3D ¹°Ã¼(worldObject)¸¦ ÅëÂ°·Î °¢ÀÎ½ÃÅµ´Ï´Ù!
-                slot.SetSlotData(data, 1, worldObject);
+                slot.SetSlotData(recipe, 1);
                 RefreshAllSlots();
                 return true;
             }

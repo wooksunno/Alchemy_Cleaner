@@ -5,8 +5,8 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set; }
 
-    [Header("💾 양방향 씬 전환 영구 보관함 (SO 직접 저장)")]
-    public List<IngredientData> savedItems = new List<IngredientData>();
+    [Header("💾 양방향 씬 전환 영구 보관함")]
+    public List<PotionRecipe> savedItems = new List<PotionRecipe>();
 
     private void Awake()
     {
@@ -14,7 +14,6 @@ public class DataManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Debug.Log("[DataManager] SO 마스터 보관소 고정 완료.");
         }
         else
         {
@@ -22,21 +21,21 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void AddItem(IngredientData data)
+    public void AddItem(PotionRecipe data)
     {
         if (data != null)
         {
             savedItems.Add(data);
-            Debug.Log($"[DataManager] SO 저장 완료: {data.name}. 현재 개수: {savedItems.Count}개");
+            Debug.Log($"[DataManager] 저장: {data.potionName}. 현재 {savedItems.Count}개");
         }
     }
 
-    public void RemoveItem(IngredientData data)
+    public void RemoveItem(PotionRecipe data)
     {
         if (savedItems.Contains(data))
         {
             savedItems.Remove(data);
-            Debug.Log($"[DataManager] SO 제거 완료: {data.name}. 잔여 개수: {savedItems.Count}개");
+            Debug.Log($"[DataManager] 제거: {data.potionName}. 잔여 {savedItems.Count}개");
         }
     }
 }

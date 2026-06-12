@@ -2,15 +2,19 @@
 
 public class BagTrigger : MonoBehaviour
 {
+    [Header("🧪 허용할 태그 (기본값: Potion)")]
+    [SerializeField] private string allowedTag = "Potion";
+
     private void OnTriggerStay(Collider other)
     {
-        var ingredientObj = other.GetComponent<IngredientObject>();
-        if (ingredientObj == null || ingredientObj.data == null) return;
+        if (!other.CompareTag(allowedTag)) return;
+
+        var potionItem = other.GetComponent<PotionInventoryItem>();
+        if (potionItem == null || potionItem.recipe == null) return;
 
         var grabInteractable = other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grabInteractable == null) return;
 
-        // 유저가 손에서 물건을 놓았을 때만 가방으로 쏙 흡수
         if (!grabInteractable.isSelected)
         {
             if (other.TryGetComponent<Collider>(out var col)) col.enabled = false;
@@ -21,15 +25,12 @@ public class BagTrigger : MonoBehaviour
             bool success = false;
             foreach (var slot in slots)
             {
-                if (slot.ItemCount == 0) // 비어있는 첫 번째 칸 찾기
+                if (slot.ItemCount == 0)
                 {
-                    slot.SetSlotData(ingredientObj.data, 1, null);
+                    slot.SetSlotData(potionItem.recipe, 1);
 
-                    // ✨ 이름 문자열이 아닌 SO 데이터 객체 주소를 다이렉트로 저장!
                     if (DataManager.Instance != null)
-                    {
-                        DataManager.Instance.AddItem(ingredientObj.data);
-                    }
+                        DataManager.Instance.AddItem(potionItem.recipe);
 
                     success = true;
                     break;
@@ -39,14 +40,13 @@ public class BagTrigger : MonoBehaviour
             if (success)
             {
                 if (InventoryManager.Instance != null)
-                {
                     InventoryManager.Instance.SortAndRefreshInventory();
-                }
-                ingredientObj.Consume(); // 필드에 있던 원래 물체 파괴
+
+                potionItem.Consume();
             }
             else
             {
-                col.enabled = true; // 가방 꽉 찼으면 튕겨내기
+                col.enabled = true;
             }
         }
     }

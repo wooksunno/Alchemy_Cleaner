@@ -225,8 +225,8 @@ Transform:
   m_GameObject: {fileID: 1583780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.093, y: 0, z: 3.64076}
-  m_LocalScale: {x: 2.3632, y: 1, z: 0.7326}
+  m_LocalPosition: {x: 0.0929999, y: 0, z: 3.64076}
+  m_LocalScale: {x: 7.0895996, y: 1, z: 0.7326}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -239,6 +239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942810691211101373, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1306871845}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -283,6 +287,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1306871845}
+    - target: {fileID: 6678509202150728127, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1306871845}
+    - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1306871845}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -862,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -955,7 +971,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &235004876
 MonoBehaviour:
@@ -969,11 +985,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1457375359}
   countText: {fileID: 159227777}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &235004877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -1952,7 +1969,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &363532682
 MonoBehaviour:
@@ -1966,11 +1983,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 279667641}
   countText: {fileID: 1048205682}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &363532683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,7 +2799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -2874,7 +2892,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &495169950
 MonoBehaviour:
@@ -2888,11 +2906,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1769446232}
   countText: {fileID: 237503466}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &495169951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3112,7 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -3205,7 +3224,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &504844491
 MonoBehaviour:
@@ -3219,11 +3238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1114771711}
   countText: {fileID: 1741078806}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &504844492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3316,7 +3336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -3409,7 +3429,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &512004118
 MonoBehaviour:
@@ -3423,11 +3443,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 611983191}
   countText: {fileID: 1882386780}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &512004119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3633,6 +3654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf8558bbf71f274587a80d4490f6e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BagTrigger
+  allowedTag: Potion
 --- !u!1 &611983189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,7 +4115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -4186,7 +4208,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &723611006
 MonoBehaviour:
@@ -4200,11 +4222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 319275337}
   countText: {fileID: 1994669701}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &723611007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,7 +4320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -4390,7 +4413,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &816367707
 MonoBehaviour:
@@ -4404,11 +4427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1584102867}
   countText: {fileID: 1114473052}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &816367708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,7 +4880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -4949,7 +4973,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &961398349
 MonoBehaviour:
@@ -4963,11 +4987,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1995786647}
   countText: {fileID: 1009988687}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &961398350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5299,7 +5324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -5392,7 +5417,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1018977573
 MonoBehaviour:
@@ -5406,11 +5431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1766119030}
   countText: {fileID: 658351674}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1018977574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6094,17 +6120,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Purify
       objectReference: {fileID: 0}
-    - target: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_TagString
-      value: Potion
-      objectReference: {fileID: 0}
     - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.801
+      value: 1.801
       objectReference: {fileID: 0}
     - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50000006
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6141,37 +6163,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1127250365}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
---- !u!1 &1127250364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-  m_PrefabInstance: {fileID: 1127250363}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1127250365
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127250364}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1150783818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6226,7 +6219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -6319,7 +6312,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1150783822
 MonoBehaviour:
@@ -6333,11 +6326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 258670029}
   countText: {fileID: 1672976662}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1150783823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6704,7 +6698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -6797,7 +6791,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1250368149
 MonoBehaviour:
@@ -6811,11 +6805,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 404751506}
   countText: {fileID: 1228907204}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1250368150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6854,6 +6849,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250368145}
   m_CullTransparentMesh: 1
+--- !u!1 &1306871844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306871846}
+  - component: {fileID: 1306871845}
+  m_Layer: 0
+  m_Name: XR Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1306871845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306871844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+--- !u!4 &1306871846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306871844}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.76851, y: 1.91009, z: 3.13381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317598189
 GameObject:
   m_ObjectHideFlags: 0
@@ -7179,7 +7220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1306871845}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -7272,7 +7313,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 185, y: 185, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1347947674
 MonoBehaviour:
@@ -7286,11 +7327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 2113464217}
   countText: {fileID: 708826231}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1347947675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9823,3 +9865,4 @@ SceneRoots:
   - {fileID: 1517384135}
   - {fileID: 337696739}
   - {fileID: 41107576}
+  - {fileID: 1306871846}

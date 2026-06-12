@@ -280,11 +280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 560556578}
   countText: {fileID: 1204323854}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &4157519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,11 +485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1979281058}
   countText: {fileID: 1452960481}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &12887940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,11 +980,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 160318264}
   countText: {fileID: 918692417}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &120042860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2857,6 +2860,7 @@ GameObject:
   - component: {fileID: 447530317}
   - component: {fileID: 447530316}
   - component: {fileID: 447530315}
+  - component: {fileID: 447530319}
   m_Layer: 0
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -2900,16 +2904,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 447530313}
   spawnDistance: 1.5
   spawnHeight: 0
-  itemDatabase:
-  - itemName: Adamantium
-    data: {fileID: 11400000, guid: 24aa1526d1ddd5442bce98eab57fd7c4, type: 2}
-    worldPrefab: {fileID: 0}
-  - itemName: Grass
-    data: {fileID: 11400000, guid: adbdd7b9d50efdb448dbe835d8a0153a, type: 2}
-    worldPrefab: {fileID: 0}
-  - itemName: IronDust
-    data: {fileID: 11400000, guid: c8a2fbc103ad64a409a800457a98fdb5, type: 2}
-    worldPrefab: {fileID: 0}
   buttonText: {fileID: 1371412784}
   menuButtonAction:
     m_UseReference: 1
@@ -2986,6 +2980,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &447530319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447530313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf8558bbf71f274587a80d4490f6e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BagTrigger
+  allowedTag: Potion
 --- !u!1 &457338658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,11 +3154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1446439302}
   countText: {fileID: 1078419265}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &457338663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4277,11 +4285,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 480399538}
   countText: {fileID: 378879175}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &577490628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4655,11 +4664,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 434936175}
   countText: {fileID: 480629942}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &660502691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4859,11 +4869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1546750873}
   countText: {fileID: 2076544268}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &668853465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5589,6 +5600,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b4d25b5b4e001ea41bcf073d34ba01cb, type: 3}
   m_PrefabInstance: {fileID: 799453986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &800458014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800458016}
+  - component: {fileID: 800458015}
+  m_Layer: 0
+  m_Name: XR Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &800458015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800458014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+--- !u!4 &800458016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800458014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.56202, y: 0.04575, z: -5.67561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808888517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6254,11 +6311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1411069251}
   countText: {fileID: 777992468}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &897617044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6848,11 +6906,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1029731043}
   countText: {fileID: 421684198}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &940934413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7293,11 +7352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1364434263}
   countText: {fileID: 1378392572}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &989971770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8371,32 +8431,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.000002, y: 0.2445589, z: 4.000001}
   m_Center: {x: 0.016751885, y: -0.07652822, z: 0.00000011920929}
---- !u!1 &1200740484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-  m_PrefabInstance: {fileID: 1862606092}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1200740485
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200740484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1203841762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9217,11 +9251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 808888519}
   countText: {fileID: 42261591}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1298950244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10889,7 +10924,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 447530313}
   spawnDistance: 1.5
   spawnHeight: 0
-  itemDatabase: []
   buttonText: {fileID: 0}
   menuButtonAction:
     m_UseReference: 0
@@ -12542,11 +12576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca412c28fd715d40ae4ac7acf14bc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  ingredientData: {fileID: 0}
+  potionRecipe: {fileID: 0}
   itemCount: 0
-  savedWorldPrefab: {fileID: 0}
   itemIconImage: {fileID: 1794369409}
   countText: {fileID: 1026809444}
+  extractHandlePrefab: {fileID: 4294824505955426512, guid: 64cd8218aad4e924896d191c8b93361e, type: 3}
+  handleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1741645410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12899,6 +12934,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 800458015}
+    - target: {fileID: 8877177980677234388, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 800458015}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13049,70 +13092,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.000002, y: 0.2445589, z: 4.000001}
   m_Center: {x: 0.016750932, y: -0.07652822, z: 0.0000010728836}
---- !u!1001 &1862606092
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_Name
-      value: Potion_Purify
-      objectReference: {fileID: 0}
-    - target: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_TagString
-      value: Potion
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.801
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.3661852
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994942474401306295, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1200740485}
-  m_SourcePrefab: {fileID: 100100000, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
 --- !u!1001 &1884526009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14404,4 +14383,4 @@ SceneRoots:
   - {fileID: 838238306}
   - {fileID: 1481543993}
   - {fileID: 549193432}
-  - {fileID: 1862606092}
+  - {fileID: 800458016}
