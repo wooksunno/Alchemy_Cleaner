@@ -73,12 +73,8 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 슬롯에 아이템이 있으면 ExtractHandle을 생성, 없으면 제거합니다.
-    /// </summary>
     private void RefreshExtractHandle()
     {
-        // 기존 핸들 정리
         if (_currentHandle != null)
         {
             Destroy(_currentHandle);
@@ -87,11 +83,21 @@ public class InventorySlot : MonoBehaviour
 
         if (itemCount <= 0 || extractHandlePrefab == null) return;
 
-        // 슬롯 위치에 핸들 스폰
-        Vector3 spawnPos = transform.position + transform.TransformVector(handleSpawnOffset);
-        _currentHandle = Instantiate(extractHandlePrefab, spawnPos, transform.rotation);
+        StartCoroutine(SpawnHandleNextFrame());
+    }
 
-        // 핸들의 ExtractHandle 컴포넌트에 이 슬롯을 연결
+    private System.Collections.IEnumerator SpawnHandleNextFrame()
+    {
+        // 레이아웃이 갱신될 시간을 한 프레임 줌
+        yield return new WaitForEndOfFrame();
+
+        if (itemCount <= 0 || extractHandlePrefab == null) yield break;
+
+        Transform refTransform = itemIconImage != null ? itemIconImage.transform : transform;
+        Vector3 spawnPos = refTransform.position + refTransform.TransformVector(handleSpawnOffset);
+
+        _currentHandle = Instantiate(extractHandlePrefab, spawnPos, refTransform.rotation);
+
         var handle = _currentHandle.GetComponent<ExtractHandle>();
         if (handle != null)
         {
@@ -99,23 +105,28 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ExtractHandle이 그랩되었을 때 호출됩니다.
-    /// 실제 포션을 스폰하고 그랩을 이전한 뒤, 슬롯을 비웁니다.
-    /// </summary>
     public void ExtractToInteractor(IXRSelectInteractor interactor)
     {
-        if (itemCount <= 0 || potionRecipe == null) return;
+        Debug.Log($"[InventorySlot:{name}] ExtractToInteractor 호출. itemCount={itemCount}, potionRecipe={potionRecipe}");
+
+        if (itemCount <= 0 || potionRecipe == null)
+        {
+            Debug.LogWarning($"[InventorySlot:{name}] 추출 실패 - itemCount 또는 potionRecipe 문제");
+            return;
+        }
 
         GameObject prefabToSpawn = potionRecipe.resultPrefab;
+        Debug.Log($"[InventorySlot:{name}] resultPrefab = {prefabToSpawn}");
+
         if (prefabToSpawn == null)
         {
             Debug.LogWarning($"[InventorySlot] {potionRecipe.potionName}의 resultPrefab이 없습니다.");
             return;
         }
 
-        // 인터랙터(컨트롤러) 위치에 실제 포션 스폰
         GameObject spawnedObj = Instantiate(prefabToSpawn, interactor.transform.position, interactor.transform.rotation);
+        Debug.Log($"[InventorySlot] 스폰됨: {spawnedObj}");
+
         spawnedObj.transform.localScale = Vector3.one;
 
         var grabInteractable = spawnedObj.GetComponent<XRGrabInteractable>();
@@ -124,7 +135,6 @@ public class InventorySlot : MonoBehaviour
             _interactionManager.SelectEnter(interactor, grabInteractable);
         }
 
-        // 데이터 정리
         if (DataManager.Instance != null)
             DataManager.Instance.RemoveItem(potionRecipe);
 

@@ -19,17 +19,17 @@ public class ExtractHandle : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
+        Debug.Log("[ExtractHandle] OnGrabbed 호출됨!");
+
         if (_ownerSlot == null) return;
 
         var interactor = args.interactorObject;
 
-        // ✨ 먼저 이 핸들에 대한 선택을 명시적으로 해제 (Destroy 전에)
         if (_interactionManager != null)
         {
             _interactionManager.SelectExit(interactor, _grabInteractable);
         }
 
-        // 실제 포션 스폰 + 데이터 정리
         _ownerSlot.ExtractToInteractor(interactor);
 
         Destroy(gameObject);
