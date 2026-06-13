@@ -1,59 +1,68 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 public class PotionPurifier : MonoBehaviour
 {
-    [Header("Á¤È­¿¡ ÇÊ¿äÇÑ Æ÷¼Ç °³¼ö")]
+    [Header("ì •í™”ì— í•„ìš”í•œ í¬ì…˜ ê°œìˆ˜")]
     public int requiredPotions = 2;
     private int _currentPotionCount = 0;
 
-    [Header("»ç¶óÁö°Ô ÇÒ »Ñ¿¬ ¿¬±â ¿ÀºêÁ§Æ®µé")]
-    [Tooltip("¿À¿° °ø°£À» Ã¤¿ì°í ÀÖ´Â ÆÄÆ¼Å¬ÀÌ³ª ¿¬±â ¸Ş½Ã ¿ÀºêÁ§Æ®¸¦ ³Ö¾îÁÖ¼¼¿ä.")]
+    [Header("ì‚¬ë¼ì§€ê²Œ í•  ë¿Œì—° ì—°ê¸° ì˜¤ë¸Œì íŠ¸ë“¤")]
+    [Tooltip("ì˜¤ì—¼ ê³µê°„ì„ ì±„ìš°ê³  ìˆëŠ” íŒŒí‹°í´ì´ë‚˜ ì—°ê¸° ë©”ì‹œ ì˜¤ë¸Œì íŠ¸ë¥¼ ë„£ì–´ì£¼ì„¸ìš”.")]
     public GameObject[] fogObjects;
 
-    [Header("Á¤È­ ¼º°ø ½Ã ÅÍ¶ß¸± ÀÌÆåÆ® (¼±ÅÃ)")]
+    [Header("ì •í™” ì„±ê³µ ì‹œ í„°ëœ¨ë¦´ ì´í™íŠ¸ (ì„ íƒ)")]
     public ParticleSystem cleanEffect;
 
     private void OnTriggerEnter(Collider other)
     {
-        // ´øÁø Æ÷¼Ç ¿ÀºêÁ§Æ®¿¡ "Potion" ÅÂ±×°¡ ºÙ¾îÀÖ¾î¾ß ÇÕ´Ï´Ù.
+        // ë˜ì§„ í¬ì…˜ ì˜¤ë¸Œì íŠ¸ì— "Potion" íƒœê·¸ê°€ ë¶™ì–´ìˆì–´ì•¼ í•©ë‹ˆë‹¤.
         if (other.CompareTag("Potion"))
         {
-            _currentPotionCount++;
-            Debug.Log($"[Á¤È­ ½Ã½ºÅÛ] Æ÷¼Ç ÀûÁß! ÇöÀç {_currentPotionCount} / {requiredPotions}");
+            // ë“¤ì–´ì˜¨ í¬ì…˜ì€ ë¶€ë”ªí˜”ìœ¼ë‹ˆ íŒŒê´´ (ë˜ëŠ” ê¹¨ì§€ëŠ” ì´í™íŠ¸)
+            // PotionShatterê°€ ìì²´ì ìœ¼ë¡œ Destroyí•˜ë¯€ë¡œ ì¤‘ë³µ íŒŒê´´ ë°©ì§€ë¥¼ ìœ„í•´ null ì²´í¬ í›„ ì²˜ë¦¬
+            RegisterPotionHit();
+        }
+    }
 
-            // µé¾î¿Â Æ÷¼ÇÀº ºÎµúÇûÀ¸´Ï ÆÄ±« (¶Ç´Â ±úÁö´Â ÀÌÆåÆ®)
-            Destroy(other.gameObject);
+    /// <summary>
+    /// âœ¨ PotionShatterì—ì„œ ì§ì ‘ í˜¸ì¶œí•˜ëŠ” ê³µê°œ í•¨ìˆ˜.
+    /// OnTriggerEnterê°€ íƒ€ì´ë° ë¬¸ì œë¡œ í˜¸ì¶œ ì•ˆ ë  ë•Œë¥¼ ëŒ€ë¹„í•œ ì§ì ‘ ë“±ë¡ ê²½ë¡œì…ë‹ˆë‹¤.
+    /// OnTriggerEnterì™€ PotionShatter ì–‘ìª½ì—ì„œ í˜¸ì¶œë  ìˆ˜ ìˆìœ¼ë¯€ë¡œ ì¤‘ë³µ í˜¸ì¶œì— ì•ˆì „í•©ë‹ˆë‹¤.
+    /// </summary>
+    public void RegisterPotionHit()
+    {
+        _currentPotionCount++;
+        Debug.Log($"[ì •í™” ì‹œìŠ¤í…œ] í¬ì…˜ ì ì¤‘! í˜„ì¬ {_currentPotionCount} / {requiredPotions}");
 
-            // Æ÷¼Ç 2°³°¡ ´Ù ¸ğ¿´´Ù¸é Á¤È­ ½ÃÀÛ
-            if (_currentPotionCount >= requiredPotions)
-            {
-                StartCoroutine(PurifyRoutine());
-            }
+        // í¬ì…˜ 2ê°œê°€ ë‹¤ ëª¨ì˜€ë‹¤ë©´ ì •í™” ì‹œì‘
+        if (_currentPotionCount >= requiredPotions)
+        {
+            StartCoroutine(PurifyRoutine());
         }
     }
 
     private IEnumerator PurifyRoutine()
     {
-        Debug.Log("[Á¤È­ ½Ã½ºÅÛ] Á¤È­ Á¶°Ç ´Ş¼º! ¿¬±â¸¦ Á¦°ÅÇÕ´Ï´Ù.");
+        Debug.Log("[ì •í™” ì‹œìŠ¤í…œ] ì •í™” ì¡°ê±´ ë‹¬ì„±! ì—°ê¸°ë¥¼ ì œê±°í•©ë‹ˆë‹¤.");
 
         if (cleanEffect != null)
         {
             cleanEffect.Play();
         }
 
-        // ¿¬±â ¿ÀºêÁ§Æ®µéÀ» ¼­¼­È÷ ²ô°Å³ª ¹Ù·Î ºñÈ°¼ºÈ­
+        // ì—°ê¸° ì˜¤ë¸Œì íŠ¸ë“¤ì„ ì„œì„œíˆ ë„ê±°ë‚˜ ë°”ë¡œ ë¹„í™œì„±í™”
         foreach (GameObject fog in fogObjects)
         {
             if (fog != null)
             {
-                // Á¶±İ ´õ ºÎµå·´°Ô ¿¬ÃâÇÏ°í ½Í´Ù¸é 1ÃÊ µÚ¿¡ ²¨Áöµµ·Ï À¯µµ
+                // ì¡°ê¸ˆ ë” ë¶€ë“œëŸ½ê²Œ ì—°ì¶œí•˜ê³  ì‹¶ë‹¤ë©´ 1ì´ˆ ë’¤ì— êº¼ì§€ë„ë¡ ìœ ë„
                 yield return new WaitForSeconds(0.3f);
                 fog.SetActive(false);
             }
         }
 
-        // ¿À¿° ±¸¿ª ÀÚÃ¼ÀÇ Äİ¶óÀÌ´õµµ ²¨¼­ Áßº¹ ÀÛµ¿ ¹æÁö
+        // ì˜¤ì—¼ êµ¬ì—­ ìì²´ì˜ ì½œë¼ì´ë”ë„ êº¼ì„œ ì¤‘ë³µ ì‘ë™ ë°©ì§€
         GetComponent<Collider>().enabled = false;
     }
 }

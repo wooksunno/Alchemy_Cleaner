@@ -7,7 +7,7 @@
 
 public class PotionEffect : MonoBehaviour
 {
-    [Header("데이터 연결")] 
+    [Header("데이터 연결")]
     public PotionType potionType;
     [SerializeField] private TrashResponseDatabase trashDatabase;
 
