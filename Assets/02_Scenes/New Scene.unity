@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 475388699}
   - component: {fileID: 475388698}
   - component: {fileID: 475388697}
-  - component: {fileID: 475388696}
+  - component: {fileID: 475388700}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Untagged
@@ -2653,20 +2653,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832928333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &475388696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475388694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eaa7cb7cf4dc94dbb067f982d84418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
-  trashType: 1
-  duration: 0.5
 --- !u!65 &475388697
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2745,6 +2731,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475388694}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &475388700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475388694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd892176c0da2448bd64a4c6689418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
+  trashType: 1
+  burnEffectPrefab: {fileID: 0}
+  burnLifetime: 1
+  burnFadeDuration: 0.5
 --- !u!1 &495169946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +2964,7 @@ GameObject:
   - component: {fileID: 502226271}
   - component: {fileID: 502226270}
   - component: {fileID: 502226269}
-  - component: {fileID: 502226268}
+  - component: {fileID: 502226272}
   m_Layer: 0
   m_Name: Toxic Mud
   m_TagString: Untagged
@@ -2985,20 +2987,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832928333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &502226268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502226266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eaa7cb7cf4dc94dbb067f982d84418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
-  trashType: 5
-  duration: 0.5
 --- !u!65 &502226269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3077,6 +3065,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502226266}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &502226272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502226266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd892176c0da2448bd64a4c6689418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
+  trashType: 5
+  burnEffectPrefab: {fileID: 0}
+  burnLifetime: 1
+  burnFadeDuration: 0.5
 --- !u!1 &504844487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,7 +4573,7 @@ GameObject:
   - component: {fileID: 862868674}
   - component: {fileID: 862868673}
   - component: {fileID: 862868672}
-  - component: {fileID: 862868671}
+  - component: {fileID: 862868675}
   m_Layer: 0
   m_Name: Sticy Trash
   m_TagString: Untagged
@@ -4592,20 +4596,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832928333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &862868671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862868669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eaa7cb7cf4dc94dbb067f982d84418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
-  trashType: 3
-  duration: 0.5
 --- !u!65 &862868672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4684,6 +4674,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862868669}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &862868675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862868669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd892176c0da2448bd64a4c6689418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
+  trashType: 3
+  burnEffectPrefab: {fileID: 4000667520668516784, guid: d0ec0a14054713c4cb454dc5f34fabb2, type: 3}
+  burnLifetime: 1
+  burnFadeDuration: 0.5
 --- !u!4 &898629562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -7556,7 +7562,7 @@ GameObject:
   - component: {fileID: 1558387022}
   - component: {fileID: 1558387021}
   - component: {fileID: 1558387020}
-  - component: {fileID: 1558387019}
+  - component: {fileID: 1558387023}
   m_Layer: 0
   m_Name: Mold
   m_TagString: Untagged
@@ -7579,20 +7585,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832928333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1558387019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558387017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eaa7cb7cf4dc94dbb067f982d84418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
-  trashType: 4
-  duration: 0.5
 --- !u!65 &1558387020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7671,6 +7663,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558387017}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1558387023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558387017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd892176c0da2448bd64a4c6689418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
+  trashType: 4
+  burnEffectPrefab: {fileID: 0}
+  burnLifetime: 1
+  burnFadeDuration: 0.5
 --- !u!1 &1584102865
 GameObject:
   m_ObjectHideFlags: 0
@@ -9674,7 +9682,7 @@ GameObject:
   - component: {fileID: 2067225772}
   - component: {fileID: 2067225771}
   - component: {fileID: 2067225770}
-  - component: {fileID: 2067225769}
+  - component: {fileID: 2067225773}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -9697,20 +9705,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832928333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2067225769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067225767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eaa7cb7cf4dc94dbb067f982d84418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
-  trashType: 2
-  duration: 0.5
 --- !u!65 &2067225770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9789,6 +9783,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067225767}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2067225773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067225767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd892176c0da2448bd64a4c6689418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrashObject
+  trashType: 2
+  burnEffectPrefab: {fileID: 0}
+  burnLifetime: 1
+  burnFadeDuration: 0.5
 --- !u!1 &2113464215
 GameObject:
   m_ObjectHideFlags: 0

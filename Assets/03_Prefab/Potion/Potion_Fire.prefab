@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 801714595084817902}
   - component: {fileID: 7751930754579173946}
   m_Layer: 0
-  m_Name: Potion_Crusher
+  m_Name: Potion_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
