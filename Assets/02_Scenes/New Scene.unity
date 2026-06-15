@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Melter
       objectReference: {fileID: 0}
+    - target: {fileID: 2393809648849908880, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
+      propertyPath: m_TagString
+      value: Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 8239822198150121710, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.663
@@ -407,7 +411,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2393809648849908880, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 378800215}
   m_SourcePrefab: {fileID: 100100000, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
 --- !u!1 &117163560
 GameObject:
@@ -2027,6 +2034,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363532678}
   m_CullTransparentMesh: 1
+--- !u!1 &378800208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2393809648849908880, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
+  m_PrefabInstance: {fileID: 45606907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &378800215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378800208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d552c1da24800cd4b8c9957570a3f148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PotionInventoryItem
+  recipe: {fileID: 11400000, guid: d58a67e9a5f2fea41a479bbc29ba5d06, type: 2}
 --- !u!1 &382226705
 GameObject:
   m_ObjectHideFlags: 0
@@ -7972,6 +7997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Crusher
       objectReference: {fileID: 0}
+    - target: {fileID: 676605577169949884, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
+      propertyPath: m_TagString
+      value: Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 7237372641599606114, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.014
@@ -8015,7 +8044,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 676605577169949884, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1963045810}
   m_SourcePrefab: {fileID: 100100000, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
 --- !u!1 &1672976660
 GameObject:
@@ -8763,6 +8795,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882386778}
   m_CullTransparentMesh: 1
+--- !u!1 &1963045803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 676605577169949884, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
+  m_PrefabInstance: {fileID: 1619273806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1963045810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963045803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d552c1da24800cd4b8c9957570a3f148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PotionInventoryItem
+  recipe: {fileID: 11400000, guid: 3eb37628a770a6648ae859dada02dfbb, type: 2}
 --- !u!1 &1973345286
 GameObject:
   m_ObjectHideFlags: 0

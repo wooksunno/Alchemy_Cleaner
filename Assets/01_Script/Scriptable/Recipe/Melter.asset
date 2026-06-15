@@ -19,7 +19,7 @@ MonoBehaviour:
     \uCC0C\uB4E0 \uC5BC\uB8E9\uC744 \uC989\uC2DC \uC6A9\uD574\uD558\uC5EC \uC0AD\uC81C\uD569\uB2C8\uB2E4."
   resultType: 1
   resultPrefab: {fileID: 2393809648849908880, guid: fb0cb76df7a83684fb54193e3838895f, type: 3}
-  resultIcon: {fileID: 0}
+  resultIcon: {fileID: 21300000, guid: ae918e5f3c6beb74783a1f0d6c47f554, type: 3}
   requiredIngredients:
   - ingredient: {fileID: 0}
     amount: 0

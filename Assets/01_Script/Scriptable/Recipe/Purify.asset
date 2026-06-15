@@ -20,7 +20,7 @@ MonoBehaviour:
     \uC5ED\uD560\uC744 \uD569\uB2C8\uB2E4."
   resultType: 0
   resultPrefab: {fileID: 4260020003914186740, guid: 8152e082064d42b469e6845b0e6d8df8, type: 3}
-  resultIcon: {fileID: 0}
+  resultIcon: {fileID: 21300000, guid: fb532b21303da464980fa0af4a52c537, type: 3}
   requiredIngredients:
   - ingredient: {fileID: 0}
     amount: 0

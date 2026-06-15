@@ -20,7 +20,7 @@ MonoBehaviour:
     \uD06C\uAE30\uB85C \uBD84\uC1C4\uD569\uB2C8\uB2E4."
   resultType: 0
   resultPrefab: {fileID: 676605577169949884, guid: 992c4335a461086408a6a62e88c2a568, type: 3}
-  resultIcon: {fileID: 0}
+  resultIcon: {fileID: 21300000, guid: 376a19c40262e1c40973e0421d36c900, type: 3}
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 24aa1526d1ddd5442bce98eab57fd7c4, type: 2}
     amount: 1

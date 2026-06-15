@@ -56,7 +56,7 @@ public class InventorySlot : MonoBehaviour
             if (itemIconImage != null)
             {
                 itemIconImage.sprite = potionRecipe?.resultIcon != null ? potionRecipe.resultIcon : null;
-                itemIconImage.color = Color.yellow;
+                itemIconImage.color = Color.white; // ✨ 노란 틴트 제거, 아이콘 원본 색 그대로
                 itemIconImage.enabled = true;
             }
             if (countText != null) countText.text = "";
@@ -88,7 +88,6 @@ public class InventorySlot : MonoBehaviour
 
     private System.Collections.IEnumerator SpawnHandleNextFrame()
     {
-        // 레이아웃이 갱신될 시간을 한 프레임 줌
         yield return new WaitForEndOfFrame();
 
         if (itemCount <= 0 || extractHandlePrefab == null) yield break;
@@ -107,17 +106,9 @@ public class InventorySlot : MonoBehaviour
 
     public void ExtractToInteractor(IXRSelectInteractor interactor)
     {
-        Debug.Log($"[InventorySlot:{name}] ExtractToInteractor 호출. itemCount={itemCount}, potionRecipe={potionRecipe}");
-
-        if (itemCount <= 0 || potionRecipe == null)
-        {
-            Debug.LogWarning($"[InventorySlot:{name}] 추출 실패 - itemCount 또는 potionRecipe 문제");
-            return;
-        }
+        if (itemCount <= 0 || potionRecipe == null) return;
 
         GameObject prefabToSpawn = potionRecipe.resultPrefab;
-        Debug.Log($"[InventorySlot:{name}] resultPrefab = {prefabToSpawn}");
-
         if (prefabToSpawn == null)
         {
             Debug.LogWarning($"[InventorySlot] {potionRecipe.potionName}의 resultPrefab이 없습니다.");
@@ -125,8 +116,6 @@ public class InventorySlot : MonoBehaviour
         }
 
         GameObject spawnedObj = Instantiate(prefabToSpawn, interactor.transform.position, interactor.transform.rotation);
-        Debug.Log($"[InventorySlot] 스폰됨: {spawnedObj}");
-
         spawnedObj.transform.localScale = Vector3.one;
 
         var grabInteractable = spawnedObj.GetComponent<XRGrabInteractable>();
