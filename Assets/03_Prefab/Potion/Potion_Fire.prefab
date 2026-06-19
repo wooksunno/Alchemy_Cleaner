@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7751930754579173946}
   m_Layer: 0
   m_Name: Potion_Fire
-  m_TagString: Untagged
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionShatter
   breakEffectPrefab: {fileID: 7856939199014537196, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   destroyDelay: 1
+  purifierDetectRadius: 1
 --- !u!114 &7751930754579173946
 MonoBehaviour:
   m_ObjectHideFlags: 0
